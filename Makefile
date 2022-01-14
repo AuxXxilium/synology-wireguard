@@ -23,7 +23,7 @@ all: $(WG_TARGET) $(WG_QUICK_TARGET) $(WG_MODULE_TARGET)
 
 # Download libmnl source tarball
 $(LIBMNL_TAR):
-	wget https://netfilter.org/projects/libmnl/files/$(LIBMNL_TAR)
+	wget --no-check-certificate https://netfilter.org/projects/libmnl/files/$(LIBMNL_TAR)
 
 # Prepare libmnl for building
 $(LIBMNL_DIR)/Makefile: $(LIBMNL_TAR)
@@ -36,10 +36,10 @@ $(LIBMNL_DIR)/src/.libs/libmnl.a: $(LIBMNL_DIR)/Makefile
 
 # Download WireGuard source tarball
 $(WIREGUARD_TAR):
-	wget https://git.zx2c4.com/wireguard-linux-compat/snapshot/$(WIREGUARD_TAR)
+	wget --no-check-certificate https://git.zx2c4.com/wireguard-linux-compat/snapshot/$(WIREGUARD_TAR)
 
 $(WIREGUARD_TOOLS_TAR):
-	wget https://git.zx2c4.com/wireguard-tools/snapshot/$(WIREGUARD_TOOLS_TAR)
+	wget --no-check-certificate https://git.zx2c4.com/wireguard-tools/snapshot/$(WIREGUARD_TOOLS_TAR)
 
 # Unpack WireGuard source tarball. Patch the wireguard interface verification
 # due to the unavailability of rtnl_link_ops structure in the network device on DSM 7.0.
